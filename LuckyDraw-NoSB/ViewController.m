@@ -22,6 +22,8 @@
 //控件懒加载
 //（1）不必将创建对象的代码全部写在viewDidLoad方法中，代码的可读性更强
 //（2）每个控件的getter方法中分别负责各自的实例化处理，代码彼此之间的独立性强，松耦合
+
+// 1.tabelView
 -(UITableView *)mTableView{
 
     if (!_mTableView) {
@@ -35,6 +37,7 @@
     return _mTableView;
 }
 
+// 2.屏幕最下方的 Next 按钮
 -(UIButton *)nextBtn{
 
     if (!_nextBtn) {
@@ -52,6 +55,8 @@
     return _nextBtn;
 }
 
+
+//3. 左上角的Clear按钮
 -(UIBarButtonItem *)leftBtn{
 
     if (!_leftBtn) {
@@ -62,6 +67,7 @@
     return _leftBtn;
 }
 
+//4. 右上角的添加按钮
 -(UIBarButtonItem *)rightBtn{
 
     if (!_rightBtn) {
@@ -84,28 +90,33 @@
     [self rightBtn];
 }
 
+//Clear按钮点击处理
 - (void)clearBtnClick{
     
     NSLog(@"Clicked ClearBtn");
 }
 
+//添加按钮点击处理
 - (void)addBtnClick{
     
     NSLog(@"Clicked addBtn");
 }
 
+#pragma mark - TabelView cell相关方法
 
+//设置tableView的section数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
     return 1;
 }
 
-
+//设置tableView的cell的个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 3;
 }
 
+//配置cell--cell的textLable, detailTextLabel, imageView
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *MyIdenifier = @"MyCell";
