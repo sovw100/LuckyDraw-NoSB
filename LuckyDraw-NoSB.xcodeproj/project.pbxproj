@@ -86,8 +86,6 @@
 				7137BAAE1AD7B13300F3D031 /* ViewController.h */,
 				7137BAAF1AD7B13300F3D031 /* ViewController.m */,
 				7137BAB11AD7B13300F3D031 /* Main.storyboard */,
-				7137BAB41AD7B13300F3D031 /* Images.xcassets */,
-				7137BAB61AD7B13300F3D031 /* LaunchScreen.xib */,
 				7137BAA71AD7B13300F3D031 /* Supporting Files */,
 			);
 			path = "LuckyDraw-NoSB";
@@ -96,6 +94,8 @@
 		7137BAA71AD7B13300F3D031 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7137BAB61AD7B13300F3D031 /* LaunchScreen.xib */,
+				7137BAB41AD7B13300F3D031 /* Images.xcassets */,
 				7137BAA81AD7B13300F3D031 /* Info.plist */,
 				7137BAA91AD7B13300F3D031 /* main.m */,
 			);
