@@ -1,0 +1,427 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7137BAAA1AD7B13300F3D031 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7137BAA91AD7B13300F3D031 /* main.m */; };
+		7137BAAD1AD7B13300F3D031 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7137BAAC1AD7B13300F3D031 /* AppDelegate.m */; };
+		7137BAB01AD7B13300F3D031 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7137BAAF1AD7B13300F3D031 /* ViewController.m */; };
+		7137BAB31AD7B13300F3D031 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7137BAB11AD7B13300F3D031 /* Main.storyboard */; };
+		7137BAB51AD7B13300F3D031 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7137BAB41AD7B13300F3D031 /* Images.xcassets */; };
+		7137BAB81AD7B13300F3D031 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7137BAB61AD7B13300F3D031 /* LaunchScreen.xib */; };
+		7137BAC41AD7B13300F3D031 /* LuckyDraw_NoSBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7137BAC31AD7B13300F3D031 /* LuckyDraw_NoSBTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7137BABE1AD7B13300F3D031 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7137BA9C1AD7B13300F3D031 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7137BAA31AD7B13300F3D031;
+			remoteInfo = "LuckyDraw-NoSB";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7137BAA41AD7B13300F3D031 /* LuckyDraw-NoSB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LuckyDraw-NoSB.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7137BAA81AD7B13300F3D031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7137BAA91AD7B13300F3D031 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7137BAAB1AD7B13300F3D031 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7137BAAC1AD7B13300F3D031 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7137BAAE1AD7B13300F3D031 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		7137BAAF1AD7B13300F3D031 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7137BAB21AD7B13300F3D031 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7137BAB41AD7B13300F3D031 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7137BAB71AD7B13300F3D031 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		7137BABD1AD7B13300F3D031 /* LuckyDraw-NoSBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LuckyDraw-NoSBTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7137BAC21AD7B13300F3D031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7137BAC31AD7B13300F3D031 /* LuckyDraw_NoSBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LuckyDraw_NoSBTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7137BAA11AD7B13300F3D031 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7137BABA1AD7B13300F3D031 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7137BA9B1AD7B13300F3D031 = {
+			isa = PBXGroup;
+			children = (
+				7137BAA61AD7B13300F3D031 /* LuckyDraw-NoSB */,
+				7137BAC01AD7B13300F3D031 /* LuckyDraw-NoSBTests */,
+				7137BAA51AD7B13300F3D031 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7137BAA51AD7B13300F3D031 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7137BAA41AD7B13300F3D031 /* LuckyDraw-NoSB.app */,
+				7137BABD1AD7B13300F3D031 /* LuckyDraw-NoSBTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7137BAA61AD7B13300F3D031 /* LuckyDraw-NoSB */ = {
+			isa = PBXGroup;
+			children = (
+				7137BAAB1AD7B13300F3D031 /* AppDelegate.h */,
+				7137BAAC1AD7B13300F3D031 /* AppDelegate.m */,
+				7137BAAE1AD7B13300F3D031 /* ViewController.h */,
+				7137BAAF1AD7B13300F3D031 /* ViewController.m */,
+				7137BAB11AD7B13300F3D031 /* Main.storyboard */,
+				7137BAB41AD7B13300F3D031 /* Images.xcassets */,
+				7137BAB61AD7B13300F3D031 /* LaunchScreen.xib */,
+				7137BAA71AD7B13300F3D031 /* Supporting Files */,
+			);
+			path = "LuckyDraw-NoSB";
+			sourceTree = "<group>";
+		};
+		7137BAA71AD7B13300F3D031 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7137BAA81AD7B13300F3D031 /* Info.plist */,
+				7137BAA91AD7B13300F3D031 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7137BAC01AD7B13300F3D031 /* LuckyDraw-NoSBTests */ = {
+			isa = PBXGroup;
+			children = (
+				7137BAC31AD7B13300F3D031 /* LuckyDraw_NoSBTests.m */,
+				7137BAC11AD7B13300F3D031 /* Supporting Files */,
+			);
+			path = "LuckyDraw-NoSBTests";
+			sourceTree = "<group>";
+		};
+		7137BAC11AD7B13300F3D031 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7137BAC21AD7B13300F3D031 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7137BAA31AD7B13300F3D031 /* LuckyDraw-NoSB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7137BAC71AD7B13300F3D031 /* Build configuration list for PBXNativeTarget "LuckyDraw-NoSB" */;
+			buildPhases = (
+				7137BAA01AD7B13300F3D031 /* Sources */,
+				7137BAA11AD7B13300F3D031 /* Frameworks */,
+				7137BAA21AD7B13300F3D031 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LuckyDraw-NoSB";
+			productName = "LuckyDraw-NoSB";
+			productReference = 7137BAA41AD7B13300F3D031 /* LuckyDraw-NoSB.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7137BABC1AD7B13300F3D031 /* LuckyDraw-NoSBTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7137BACA1AD7B13300F3D031 /* Build configuration list for PBXNativeTarget "LuckyDraw-NoSBTests" */;
+			buildPhases = (
+				7137BAB91AD7B13300F3D031 /* Sources */,
+				7137BABA1AD7B13300F3D031 /* Frameworks */,
+				7137BABB1AD7B13300F3D031 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7137BABF1AD7B13300F3D031 /* PBXTargetDependency */,
+			);
+			name = "LuckyDraw-NoSBTests";
+			productName = "LuckyDraw-NoSBTests";
+			productReference = 7137BABD1AD7B13300F3D031 /* LuckyDraw-NoSBTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7137BA9C1AD7B13300F3D031 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = ZHOUTAO;
+				TargetAttributes = {
+					7137BAA31AD7B13300F3D031 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					7137BABC1AD7B13300F3D031 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 7137BAA31AD7B13300F3D031;
+					};
+				};
+			};
+			buildConfigurationList = 7137BA9F1AD7B13300F3D031 /* Build configuration list for PBXProject "LuckyDraw-NoSB" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7137BA9B1AD7B13300F3D031;
+			productRefGroup = 7137BAA51AD7B13300F3D031 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7137BAA31AD7B13300F3D031 /* LuckyDraw-NoSB */,
+				7137BABC1AD7B13300F3D031 /* LuckyDraw-NoSBTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7137BAA21AD7B13300F3D031 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7137BAB31AD7B13300F3D031 /* Main.storyboard in Resources */,
+				7137BAB81AD7B13300F3D031 /* LaunchScreen.xib in Resources */,
+				7137BAB51AD7B13300F3D031 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7137BABB1AD7B13300F3D031 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7137BAA01AD7B13300F3D031 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7137BAB01AD7B13300F3D031 /* ViewController.m in Sources */,
+				7137BAAD1AD7B13300F3D031 /* AppDelegate.m in Sources */,
+				7137BAAA1AD7B13300F3D031 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7137BAB91AD7B13300F3D031 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7137BAC41AD7B13300F3D031 /* LuckyDraw_NoSBTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7137BABF1AD7B13300F3D031 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7137BAA31AD7B13300F3D031 /* LuckyDraw-NoSB */;
+			targetProxy = 7137BABE1AD7B13300F3D031 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7137BAB11AD7B13300F3D031 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7137BAB21AD7B13300F3D031 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7137BAB61AD7B13300F3D031 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7137BAB71AD7B13300F3D031 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7137BAC51AD7B13300F3D031 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7137BAC61AD7B13300F3D031 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7137BAC81AD7B13300F3D031 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "LuckyDraw-NoSB/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7137BAC91AD7B13300F3D031 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "LuckyDraw-NoSB/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7137BACB1AD7B13300F3D031 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "LuckyDraw-NoSBTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LuckyDraw-NoSB.app/LuckyDraw-NoSB";
+			};
+			name = Debug;
+		};
+		7137BACC1AD7B13300F3D031 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "LuckyDraw-NoSBTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LuckyDraw-NoSB.app/LuckyDraw-NoSB";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7137BA9F1AD7B13300F3D031 /* Build configuration list for PBXProject "LuckyDraw-NoSB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7137BAC51AD7B13300F3D031 /* Debug */,
+				7137BAC61AD7B13300F3D031 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7137BAC71AD7B13300F3D031 /* Build configuration list for PBXNativeTarget "LuckyDraw-NoSB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7137BAC81AD7B13300F3D031 /* Debug */,
+				7137BAC91AD7B13300F3D031 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7137BACA1AD7B13300F3D031 /* Build configuration list for PBXNativeTarget "LuckyDraw-NoSBTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7137BACB1AD7B13300F3D031 /* Debug */,
+				7137BACC1AD7B13300F3D031 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7137BA9C1AD7B13300F3D031 /* Project object */;
+}
