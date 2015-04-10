@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7111C90D1AD8090100F5F84E /* DrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7111C90C1AD8090100F5F84E /* DrawingViewController.m */; };
 		7137BAAA1AD7B13300F3D031 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7137BAA91AD7B13300F3D031 /* main.m */; };
 		7137BAAD1AD7B13300F3D031 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7137BAAC1AD7B13300F3D031 /* AppDelegate.m */; };
 		7137BAB01AD7B13300F3D031 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7137BAAF1AD7B13300F3D031 /* ViewController.m */; };
@@ -14,6 +15,8 @@
 		7137BAB51AD7B13300F3D031 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7137BAB41AD7B13300F3D031 /* Images.xcassets */; };
 		7137BAB81AD7B13300F3D031 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7137BAB61AD7B13300F3D031 /* LaunchScreen.xib */; };
 		7137BAC41AD7B13300F3D031 /* LuckyDraw_NoSBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7137BAC31AD7B13300F3D031 /* LuckyDraw_NoSBTests.m */; };
+		7137BACF1AD7F79400F3D031 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7137BACE1AD7F79400F3D031 /* SettingViewController.m */; };
+		7137BAD21AD7F85900F3D031 /* NumSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7137BAD11AD7F85900F3D031 /* NumSettingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7111C90B1AD8090100F5F84E /* DrawingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingViewController.h; sourceTree = "<group>"; };
+		7111C90C1AD8090100F5F84E /* DrawingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingViewController.m; sourceTree = "<group>"; };
 		7137BAA41AD7B13300F3D031 /* LuckyDraw-NoSB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LuckyDraw-NoSB.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7137BAA81AD7B13300F3D031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7137BAA91AD7B13300F3D031 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +45,10 @@
 		7137BABD1AD7B13300F3D031 /* LuckyDraw-NoSBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LuckyDraw-NoSBTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7137BAC21AD7B13300F3D031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7137BAC31AD7B13300F3D031 /* LuckyDraw_NoSBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LuckyDraw_NoSBTests.m; sourceTree = "<group>"; };
+		7137BACD1AD7F79400F3D031 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		7137BACE1AD7F79400F3D031 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		7137BAD01AD7F85900F3D031 /* NumSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumSettingViewController.h; sourceTree = "<group>"; };
+		7137BAD11AD7F85900F3D031 /* NumSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumSettingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +94,12 @@
 				7137BAAC1AD7B13300F3D031 /* AppDelegate.m */,
 				7137BAAE1AD7B13300F3D031 /* ViewController.h */,
 				7137BAAF1AD7B13300F3D031 /* ViewController.m */,
+				7137BACD1AD7F79400F3D031 /* SettingViewController.h */,
+				7137BACE1AD7F79400F3D031 /* SettingViewController.m */,
+				7137BAD01AD7F85900F3D031 /* NumSettingViewController.h */,
+				7137BAD11AD7F85900F3D031 /* NumSettingViewController.m */,
+				7111C90B1AD8090100F5F84E /* DrawingViewController.h */,
+				7111C90C1AD8090100F5F84E /* DrawingViewController.m */,
 				7137BAB11AD7B13300F3D031 /* Main.storyboard */,
 				7137BAA71AD7B13300F3D031 /* Supporting Files */,
 			);
@@ -220,8 +235,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7137BAB01AD7B13300F3D031 /* ViewController.m in Sources */,
+				7137BAD21AD7F85900F3D031 /* NumSettingViewController.m in Sources */,
 				7137BAAD1AD7B13300F3D031 /* AppDelegate.m in Sources */,
 				7137BAAA1AD7B13300F3D031 /* main.m in Sources */,
+				7137BACF1AD7F79400F3D031 /* SettingViewController.m in Sources */,
+				7111C90D1AD8090100F5F84E /* DrawingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +430,7 @@
 				7137BAC91AD7B13300F3D031 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7137BACA1AD7B13300F3D031 /* Build configuration list for PBXNativeTarget "LuckyDraw-NoSBTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +439,7 @@
 				7137BACC1AD7B13300F3D031 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

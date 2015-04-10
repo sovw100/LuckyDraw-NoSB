@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "SettingViewController.h"
+#import "NumSettingViewController.h"
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -28,8 +30,9 @@
 
     if (!_mTableView) {
         
-        _mTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 468) style:UITableViewStylePlain];
-        _mTableView.backgroundColor = [UIColor yellowColor];
+        _mTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 500) style:UITableViewStylePlain];
+        _mTableView.backgroundColor = [UIColor colorWithRed:(CGFloat)(81/255.f) green:(CGFloat)(229/255.f) blue:(CGFloat)(239/255.f) alpha:1.f];
+        _mTableView.tableFooterView = [[UITableView alloc] init];
         
         [self.view addSubview:_mTableView];
     }
@@ -44,17 +47,18 @@
         
         _nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _nextBtn.frame = CGRectMake(80, 498, 160, 40);
-        [_nextBtn setBackgroundColor:[UIColor grayColor]];
+        [_nextBtn setBackgroundColor:[UIColor lightGrayColor]];
         [_nextBtn setTitle:@"Next" forState:UIControlStateNormal];
         [_nextBtn setTitle:@"Clicked" forState:UIControlStateHighlighted];
         _nextBtn.titleLabel.font = [UIFont fontWithName:@"Avenir-Light" size:16];
         
         [self.view addSubview:_nextBtn];
+        
+        [_nextBtn addTarget:self action:@selector(nextBtnClick) forControlEvents:UIControlEventTouchUpInside];
     }
     
     return _nextBtn;
 }
-
 
 //3. 左上角的Clear按钮
 -(UIBarButtonItem *)leftBtn{
@@ -81,13 +85,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor colorWithRed:(CGFloat)(81/255.f) green:(CGFloat)(229/255.f) blue:(CGFloat)(239/255.f) alpha:1.f];
 
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
     
+    self.navigationItem.title = @"Home";
+    
     [self nextBtn];
     [self leftBtn];
     [self rightBtn];
+    
 }
 
 //Clear按钮点击处理
@@ -100,6 +109,16 @@
 - (void)addBtnClick{
     
     NSLog(@"Clicked addBtn");
+    SettingViewController *setViewCtrl = [[SettingViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:setViewCtrl animated:YES];
+    
+}
+
+// Next按钮点击处理
+- (void)nextBtnClick{
+
+    NumSettingViewController *numSetViewCtrl = [[NumSettingViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:numSetViewCtrl animated:YES];
 }
 
 #pragma mark - TabelView cell相关方法
@@ -121,15 +140,21 @@
     
     static NSString *MyIdenifier = @"MyCell";
     
+    //复用cell
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdenifier];
+    
     if (cell == nil) {
         
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:MyIdenifier];
     }
     
+    cell.backgroundColor = [UIColor colorWithRed:(CGFloat)(81/255.f) green:(CGFloat)(229/255.f) blue:(CGFloat)(239/255.f) alpha:1.f];
+    cell.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:18];
+    cell.detailTextLabel.font = [UIFont fontWithName:@"Avenir-Light" size:12];
     cell.textLabel.text = @"Success";
+    cell.detailTextLabel.text = @"Text Font";
     
-    
+
     return cell;
     
 }
