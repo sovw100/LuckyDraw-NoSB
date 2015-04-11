@@ -14,6 +14,53 @@
 
 @implementation AppDelegate
 
+- (NSMutableArray *)processArray{
+    if ( !_processArray ) {
+        _processArray = [[NSMutableArray alloc] init];
+    }
+    return _processArray;
+}
+
+- (NSMutableArray *)exeProcessArray{
+    if ( !_exeProcessArray ) {
+        _exeProcessArray = [[NSMutableArray alloc]init];
+    }
+    return _exeProcessArray;
+}
+
+
+- (NSMutableArray *)prizeInfoArray{
+    if ( !_prizeInfoArray) {
+        _prizeInfoArray = [[NSMutableArray alloc]init];
+    }
+    return _prizeInfoArray;
+}
+
+- (NSMutableArray *)winnerNumArray{
+    if ( !_winnerNumArray) {
+        _winnerNumArray = [[NSMutableArray alloc]init];
+    }
+    return _winnerNumArray;
+}
+
+
+- (NSString *)strPlayer{
+    if( !_strPlayer ) {
+        _strPlayer = [[NSString alloc]init];
+    }
+    return _strPlayer;
+}
+
+
+//NSUInteger *numCell;
+- (NSString *)strCell{
+    if ( !_strCell ) {
+        _strCell = [[NSString alloc]init];
+    }
+    return _strCell;
+}
+
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

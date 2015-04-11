@@ -17,6 +17,7 @@
 		7137BAC41AD7B13300F3D031 /* LuckyDraw_NoSBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7137BAC31AD7B13300F3D031 /* LuckyDraw_NoSBTests.m */; };
 		7137BACF1AD7F79400F3D031 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7137BACE1AD7F79400F3D031 /* SettingViewController.m */; };
 		7137BAD21AD7F85900F3D031 /* NumSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7137BAD11AD7F85900F3D031 /* NumSettingViewController.m */; };
+		717A241F1AD8F28300DC799E /* ShowSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 717A241E1AD8F28300DC799E /* ShowSetViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		7137BACE1AD7F79400F3D031 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		7137BAD01AD7F85900F3D031 /* NumSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumSettingViewController.h; sourceTree = "<group>"; };
 		7137BAD11AD7F85900F3D031 /* NumSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumSettingViewController.m; sourceTree = "<group>"; };
+		717A241D1AD8F28300DC799E /* ShowSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowSetViewController.h; sourceTree = "<group>"; };
+		717A241E1AD8F28300DC799E /* ShowSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowSetViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 				7137BAAF1AD7B13300F3D031 /* ViewController.m */,
 				7137BACD1AD7F79400F3D031 /* SettingViewController.h */,
 				7137BACE1AD7F79400F3D031 /* SettingViewController.m */,
+				717A241D1AD8F28300DC799E /* ShowSetViewController.h */,
+				717A241E1AD8F28300DC799E /* ShowSetViewController.m */,
 				7137BAD01AD7F85900F3D031 /* NumSettingViewController.h */,
 				7137BAD11AD7F85900F3D031 /* NumSettingViewController.m */,
 				7111C90B1AD8090100F5F84E /* DrawingViewController.h */,
@@ -238,6 +243,7 @@
 				7137BAD21AD7F85900F3D031 /* NumSettingViewController.m in Sources */,
 				7137BAAD1AD7B13300F3D031 /* AppDelegate.m in Sources */,
 				7137BAAA1AD7B13300F3D031 /* main.m in Sources */,
+				717A241F1AD8F28300DC799E /* ShowSetViewController.m in Sources */,
 				7137BACF1AD7F79400F3D031 /* SettingViewController.m in Sources */,
 				7111C90D1AD8090100F5F84E /* DrawingViewController.m in Sources */,
 			);

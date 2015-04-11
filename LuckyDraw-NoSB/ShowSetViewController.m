@@ -1,12 +1,12 @@
 //
-//  SettingViewController.m
+//  ShowSetViewController.m
 //  LuckyDraw-NoSB
 //
-//  Created by ZHOUTAO on 15/4/10.
+//  Created by ZHOUTAO on 15/4/11.
 //  Copyright (c) 2015年 ZHOUTAO. All rights reserved.
 //
 
-#import "SettingViewController.h"
+#import "ShowSetViewController.h"
 #import "AppDelegate.h"
 
 //TextField宏定义
@@ -14,7 +14,9 @@
 #define HEIGHT 35
 #define FONT_SIZE 16
 
-@interface SettingViewController ()<UITextFieldDelegate>//设置TextField的代理
+static unsigned long numCell;//Cell在数组中的正确位置
+
+@interface ShowSetViewController ()<UITextFieldDelegate>//设置TextField的代理
 
 /**奖项文本框*/
 @property (nonatomic, strong) UITextField *levelTextField;
@@ -27,12 +29,12 @@
 
 @end
 
-@implementation SettingViewController
+@implementation ShowSetViewController
 
 //控件懒加载
 //1.奖项文本框
 -(UITextField *)levelTextField{
-
+    
     if (!_levelTextField) {
         
         _levelTextField = [[UITextField alloc] initWithFrame:CGRectMake(50, 160, WIDTH, HEIGHT)];
@@ -112,13 +114,65 @@
     [self prizeTextField];
     [self numTextField];
     [self saveBtn];
-
+    
+    //Niklas 1.4.2015
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    NSDictionary *editInfoDicts = [[NSDictionary alloc]init];
+    
+    numCell = [myDelegate.strCell intValue];
+    
+    NSLog(@"第%@个cell在数组中是%ld：", myDelegate.strCell, numCell);
+    
+    editInfoDicts = [myDelegate.prizeInfoArray objectAtIndex:numCell];
+    
+    self.levelTextField.text = [editInfoDicts objectForKey:@"level"];
+    self.prizeTextField.text = [editInfoDicts objectForKey:@"prize"];
+    self.numTextField.text = [editInfoDicts objectForKey:@"num"];
+    
+    NSLog(@"ShowView被加载");
+    /////////////////////////////////////////////////////////////////////////////////
+    
 }
 
 - (void) saveBtnClick{
     
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     
+    //function 去除旧数据
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    NSMutableDictionary *processDelDicts = [[NSMutableDictionary alloc]init];
+    NSString *delPrize = [[NSString alloc]init];
+    unsigned int numCell = [myDelegate.strCell intValue];
+    processDelDicts = [myDelegate.prizeInfoArray objectAtIndex:numCell];
+    NSLog(@"processDelDicts%@", processDelDicts);
+    delPrize = [processDelDicts objectForKey:@"prize"];
+    NSLog(@"被删掉的是%@ 奖。",delPrize);
+    //算出成员数
+    unsigned long numObjProcessArray = [myDelegate.processArray count];
+    
+    
+    //#function 删除prize信息，删除奖池信息 3.4.2015
+    NSLog(@"processArray 有 %ld 个成员",numObjProcessArray);
+    
+    for (int i = 0; i < numObjProcessArray ; i++) {
+        
+        for (int j = 0; j < [myDelegate.processArray count] ; j++ ) {
+            
+            processDelDicts = [myDelegate.processArray objectAtIndex:j];
+            NSLog(@"从process中抽出奖项名字：%@",[processDelDicts objectForKey:@"prize"]);
+            
+            if ( [[processDelDicts objectForKey:@"prize"]isEqualToString:delPrize] ) {
+                NSLog(@"匹配成功！");
+                [myDelegate.processArray removeObjectAtIndex:j];
+                NSLog(@"还需要再比对%ld次", numObjProcessArray);
+            }
+        }
+    }
+    NSLog(@"去除该奖励后，奖池信息:%@", myDelegate.processArray);
+    [myDelegate.prizeInfoArray removeObjectAtIndex:numCell];
+    NSLog(@"删除后prizeInforArray信息：%@ ", myDelegate.prizeInfoArray);
+    NSLog(@"第%d被删除", numCell);
+    
+    //function 从textFiled重新读入
     NSMutableDictionary *processDicts = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *prizeInfoDicts = [[NSMutableDictionary alloc] init];
     
@@ -139,19 +193,11 @@
     [myDelegate.prizeInfoArray insertObject:prizeInfoDicts atIndex:[myDelegate.prizeInfoArray count]];
     
     NSLog(@"Prize's Information's Array %@", myDelegate.prizeInfoArray);
+
 }
 
-//键盘按return键后从屏幕消失
--(BOOL)textFieldShouldReturn:(UITextField *)textField{
-
-    [textField resignFirstResponder];
-    
-    return YES;
-}
-//点击TextField以外的区域让键盘消失,解决数字键盘无return键问题
-//这个方法应该是最简单的了
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-
+    
     [self.view endEditing:YES];
 }
 

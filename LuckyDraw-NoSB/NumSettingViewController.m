@@ -8,6 +8,7 @@
 
 #import "NumSettingViewController.h"
 #import "DrawingViewController.h"
+#import "AppDelegate.h"
 
 @interface NumSettingViewController ()
 
@@ -28,11 +29,12 @@
 
     if (!_TotalPerson) {
         
-        _TotalPerson = [[UITextField alloc] initWithFrame:CGRectMake(50, 280, 220, 35)];
+        _TotalPerson = [[UITextField alloc] initWithFrame:CGRectMake(50, 200, 220, 35)];
         _TotalPerson.placeholder = @"请输入抽奖总人数";
         _TotalPerson.backgroundColor = [UIColor whiteColor];
         _TotalPerson.font = [UIFont fontWithName:@"Avenir-Light" size:16];
-        
+        _TotalPerson.keyboardType = UIKeyboardTypeNumberPad;
+    
         [self.view addSubview:_TotalPerson];
     }
     
@@ -71,13 +73,51 @@
     
 }
 
+//Start按钮点击事件处理
 - (void)startBtnClick{
 
-    NSLog(@"Clicked StartBtn");
     DrawingViewController *drawViewCtrl = [[DrawingViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:drawViewCtrl animated:YES];
+    
+    NSLog(@"Here is %@ player", self.TotalPerson.text);
+    
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    
+    myDelegate.strPlayer = self.TotalPerson.text;
+    
+    NSUInteger numPlayer = [myDelegate.strPlayer intValue];
+    NSLog(@"numPlayer %ld",numPlayer);
+    
+    NSUInteger numPrize = [myDelegate.processArray count];
+    NSLog(@"numPrize %lu", numPrize);
+    
+    NSMutableDictionary *infoDicts = [[NSMutableDictionary alloc]init];
+    
+    NSUInteger numNone = numPlayer - numPrize;
+    NSLog(@"numNone %lu", numNone);
+    
+    if ( numPlayer > 0 ) {
+        for (int i = 0; i < numNone ; i++ ) {
+            
+            [infoDicts setValue:@"没中奖" forKey:@"level"];
+            [infoDicts setValue:@"没奖品" forKey:@"prize"];
+            [myDelegate.processArray addObject:infoDicts];
+        }
+    } else {
+        //以后加上警报：关于人数不正确。
+        NSLog(@"I think you need more people 0.0");
+    }
+    
+    NSLog(@"知道参加人数后的抽奖池:%lu", [myDelegate.processArray count]);
+    NSLog(@"抽奖池:%@", myDelegate.processArray);
+    
+    myDelegate.exeProcessArray = [myDelegate.processArray mutableCopy];
 }
 
+//点击TextField以外区域，键盘消失
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
 
+    [self.view endEditing:YES];
+}
 
 @end

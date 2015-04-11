@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "SettingViewController.h"
 #import "NumSettingViewController.h"
+#import "AppDelegate.h"
+#import "ShowSetViewController.h"
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -83,6 +85,12 @@
     return _rightBtn;
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self.mTableView reloadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -108,7 +116,7 @@
 //添加按钮点击处理
 - (void)addBtnClick{
     
-    NSLog(@"Clicked addBtn");
+    //跳转至奖项设置界面
     SettingViewController *setViewCtrl = [[SettingViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:setViewCtrl animated:YES];
     
@@ -116,14 +124,15 @@
 
 // Next按钮点击处理
 - (void)nextBtnClick{
-
+    
+    //跳转至总抽奖人数设置界面
     NumSettingViewController *numSetViewCtrl = [[NumSettingViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:numSetViewCtrl animated:YES];
 }
 
 #pragma mark - TabelView cell相关方法
 
-//设置tableView的section数
+//设置tableView的section数，可选方法，默认返回1，可选择不实现该方法
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
     return 1;
@@ -132,7 +141,8 @@
 //设置tableView的cell的个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    return [myDelegate.prizeInfoArray count];
 }
 
 //配置cell--cell的textLable, detailTextLabel, imageView
@@ -146,17 +156,55 @@
     if (cell == nil) {
         
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:MyIdenifier];
+        //点击该行进入下一个页面
+        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     }
     
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    
+    NSDictionary *prizeInfo = [[NSDictionary alloc] init];
+    prizeInfo = [myDelegate.prizeInfoArray objectAtIndex:indexPath.row];
+    
+    NSString *level = [prizeInfo objectForKey:@"level"];
+    NSString *prize = [prizeInfo objectForKey:@"prize"];
+    NSString *num = [prizeInfo objectForKey:@"num"];
+    NSString *prizeInfoStr = [NSString stringWithFormat:@"奖项：%@ 奖品：%@", level, prize];
+    NSString *numStr = [NSString stringWithFormat:@"奖品个数：%@", num];
+
     cell.backgroundColor = [UIColor colorWithRed:(CGFloat)(81/255.f) green:(CGFloat)(229/255.f) blue:(CGFloat)(239/255.f) alpha:1.f];
     cell.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:18];
     cell.detailTextLabel.font = [UIFont fontWithName:@"Avenir-Light" size:12];
-    cell.textLabel.text = @"Success";
-    cell.detailTextLabel.text = @"Text Font";
+    cell.textLabel.text = prizeInfoStr;
+    cell.detailTextLabel.text = numStr;
     
 
     return cell;
     
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated{
+    
+    [super setEditing:editing animated:animated];
+    [self.mTableView setEditing:editing animated:animated];
+}
+
+//返回类型：进入编辑状态时候，选择返回删除或者增加
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return UITableViewCellEditingStyleDelete;
+//    return UITableViewCellEditingStyleInsert; 增加
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ShowSetViewController *showSetViewCtrl = [[ShowSetViewController alloc] init];
+    [self.navigationController pushViewController:showSetViewCtrl animated:YES];
+    NSInteger row = [indexPath row];
+    showSetViewCtrl.index = row;
+    
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    myDelegate.strCell = [NSString stringWithFormat:@"%ld", row];
+    
+    NSLog(@"第 %ld 个cell", row);
 }
 
 @end
