@@ -135,6 +135,13 @@ static unsigned long numCell;//Cell在数组中的正确位置
 
 - (void) saveBtnClick{
     
+    if ((self.levelTextField.text.length == 0) || (self.prizeTextField.text.length == 0) || (self.numTextField.text.length == 0)) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"挫B!" message:@"你少输入数据了" delegate:nil cancelButtonTitle:@"这都被你发现" otherButtonTitles:nil];
+        [alert show];
+        
+    }else{
+
     
     //function 去除旧数据
     AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
@@ -181,6 +188,7 @@ static unsigned long numCell;//Cell在数组中的正确位置
         [processDicts setValue:self.levelTextField.text forKey:@"level"];
         [processDicts setValue:self.prizeTextField.text forKey:@"prize"];
         [myDelegate.processArray addObject:processDicts];
+ 
     }
     NSLog(@"processArray%@", myDelegate.processArray);
     
@@ -192,6 +200,8 @@ static unsigned long numCell;//Cell在数组中的正确位置
     [myDelegate.prizeInfoArray insertObject:prizeInfoDicts atIndex:[myDelegate.prizeInfoArray count]];
     
     NSLog(@"Prize's Information's Array %@", myDelegate.prizeInfoArray);
+    
+    }
 
 }
 

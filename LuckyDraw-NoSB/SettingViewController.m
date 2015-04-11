@@ -119,6 +119,13 @@
 
 - (void) saveBtnClick{
     
+    if ((self.levelTextField.text.length == 0) || (self.prizeTextField.text.length == 0) || (self.numTextField.text.length == 0)) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"太挫了!" message:@"数据不完全啊傻逼！" delegate:nil cancelButtonTitle:@"点这里的是傻逼" otherButtonTitles:nil];
+        [alert show];
+        
+    }else{
+    
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     
     NSMutableDictionary *processDicts = [[NSMutableDictionary alloc] init];
@@ -130,6 +137,8 @@
         [processDicts setValue:self.levelTextField.text forKey:@"level"];
         [processDicts setValue:self.prizeTextField.text forKey:@"prize"];
         [myDelegate.processArray addObject:processDicts];
+   
+
     }
     NSLog(@"processArray%@", myDelegate.processArray);
     
@@ -139,8 +148,12 @@
     [prizeInfoDicts setValue:self.prizeTextField.text forKey:@"prize"];
     [prizeInfoDicts setValue:self.numTextField.text forKey:@"num"];
     [myDelegate.prizeInfoArray insertObject:prizeInfoDicts atIndex:[myDelegate.prizeInfoArray count]];
+
     
     NSLog(@"Prize's Information's Array %@", myDelegate.prizeInfoArray);
+    
+    }
+
 }
 
 //键盘按return键后从屏幕消失

@@ -77,6 +77,14 @@
 
 //Start按钮点击事件处理
 - (void)startBtnClick{
+    
+    if (self.TotalPerson.text.length == 0) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"- = |||!" message:@"2B,你忘记输入人数了！" delegate:nil cancelButtonTitle:@"你才是2B" otherButtonTitles:nil];
+        [alert show];
+        
+    }else{
+
 
     DrawingViewController *drawViewCtrl = [[DrawingViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:drawViewCtrl animated:YES];
@@ -104,6 +112,7 @@
             [infoDicts setValue:@"没中奖" forKey:@"level"];
             [infoDicts setValue:@"没奖品" forKey:@"prize"];
             [myDelegate.processArray addObject:infoDicts];
+
         }
     } else {
         //以后加上警报：关于人数不正确。
@@ -114,6 +123,7 @@
     NSLog(@"抽奖池:%@", myDelegate.processArray);
     
     myDelegate.exeProcessArray = [myDelegate.processArray mutableCopy];
+    }
 }
 
 //点击TextField以外区域，键盘消失

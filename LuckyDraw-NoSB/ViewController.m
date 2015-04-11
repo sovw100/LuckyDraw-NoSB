@@ -105,8 +105,6 @@
     [self leftBtn];
     [self rightBtn];
     
-    
-    
 }
 
 //Clear按钮点击处理

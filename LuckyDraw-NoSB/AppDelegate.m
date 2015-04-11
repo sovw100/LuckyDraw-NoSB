@@ -17,7 +17,8 @@
 - (NSMutableArray *)processArray{
     if ( !_processArray ) {
         _processArray = [[NSMutableArray alloc] init];
-    }
+        
+        }
     return _processArray;
 }
 
@@ -32,7 +33,8 @@
 - (NSMutableArray *)prizeInfoArray{
     if ( !_prizeInfoArray) {
         _prizeInfoArray = [[NSMutableArray alloc]init];
-    }
+        
+        }
     return _prizeInfoArray;
 }
 
