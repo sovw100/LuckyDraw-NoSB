@@ -75,6 +75,8 @@
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
     
+    self.navigationItem.title = @"抽奖ing";
+    
     [self drawBtn];
     
     

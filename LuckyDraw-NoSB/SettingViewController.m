@@ -108,6 +108,8 @@
     
     self.view.backgroundColor = [UIColor colorWithRed:(CGFloat)(81/255.f) green:(CGFloat)(229/255.f) blue:(CGFloat)(239/255.f) alpha:1.f];
     
+    self.navigationItem.title = @"奖项设置";
+    
     [self levelTextField];
     [self prizeTextField];
     [self numTextField];

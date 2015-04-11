@@ -105,12 +105,18 @@
     [self leftBtn];
     [self rightBtn];
     
+    
+    
 }
 
 //Clear按钮点击处理
 - (void)clearBtnClick{
     
-    NSLog(@"Clicked ClearBtn");
+    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+    [myDelegate.processArray removeAllObjects];
+    [myDelegate.prizeInfoArray removeAllObjects];
+    
+    [self.mTableView reloadData];
 }
 
 //添加按钮点击处理

@@ -38,7 +38,6 @@ static unsigned long numCell;//Cell在数组中的正确位置
     if (!_levelTextField) {
         
         _levelTextField = [[UITextField alloc] initWithFrame:CGRectMake(50, 160, WIDTH, HEIGHT)];
-        _levelTextField.placeholder = @"请输入奖项名称";
         _levelTextField.backgroundColor = [UIColor whiteColor];
         _levelTextField.font = [UIFont fontWithName:@"Avenir-Light" size:FONT_SIZE];
         [self.view addSubview:_levelTextField];
@@ -55,7 +54,6 @@ static unsigned long numCell;//Cell在数组中的正确位置
     if (!_prizeTextField) {
         
         _prizeTextField = [[UITextField alloc] initWithFrame:CGRectMake(50, 220, WIDTH, HEIGHT)];
-        _prizeTextField.placeholder = @"请输入奖品名称";
         _prizeTextField.backgroundColor = [UIColor whiteColor];
         _prizeTextField.font = [UIFont fontWithName:@"Avenir-Light" size:FONT_SIZE];
         [self.view addSubview:_prizeTextField];
@@ -71,7 +69,6 @@ static unsigned long numCell;//Cell在数组中的正确位置
     
     if (!_numTextField) {
         _numTextField = [[UITextField alloc] initWithFrame:CGRectMake(50, 280, WIDTH, HEIGHT)];
-        _numTextField.placeholder = @"请输入获奖人数";
         _numTextField.backgroundColor = [UIColor whiteColor];
         _numTextField.font = [UIFont fontWithName:@"Avenir-Light" size:FONT_SIZE];
         _numTextField.keyboardType = UIKeyboardTypeNumberPad;
@@ -109,6 +106,8 @@ static unsigned long numCell;//Cell在数组中的正确位置
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor colorWithRed:(CGFloat)(81/255.f) green:(CGFloat)(229/255.f) blue:(CGFloat)(239/255.f) alpha:1.f];
+    
+    self.navigationItem.title = @"修改奖项";
     
     [self levelTextField];
     [self prizeTextField];

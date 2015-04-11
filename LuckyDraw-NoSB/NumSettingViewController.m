@@ -68,6 +68,8 @@
     
     self.view.backgroundColor = [UIColor colorWithRed:(CGFloat)(81/255.f) green:(CGFloat)(229/255.f) blue:(CGFloat)(239/255.f) alpha:1.f];
     
+    self.navigationItem.title = @"抽奖人数";
+    
     [self TotalPerson];
     [self startBtn];
     
