@@ -113,27 +113,19 @@
     [myDelegate.processArray removeAllObjects];
     [myDelegate.prizeInfoArray removeAllObjects];
     
+    // 1. 创建核心动画
+    CATransition *transition = [CATransition animation];
+    // 2. 选择动画过渡效果
+    transition.type = @"suckEffect";
+    transition.subtype = kCATransitionFromRight;
+    // 3.设置动画时间
+    transition.duration = 0.5;
+    // 4. 添加核心动画
+    [self.view.layer addAnimation:transition forKey:nil];
+    
     [self.mTableView reloadData];
-}
-
-//添加按钮点击处理
-- (void)addBtnClick{
     
-        // 1. 创建核心动画
-        CATransition *transition = [CATransition animation];
-        // 2. 选择动画过渡效果
-        transition.type = @"cube";
-        transition.subtype = kCATransitionFromRight;
-        // 3.设置动画时间
-        transition.duration = 0.5;
-        // 4. 添加核心动画
-    
-        transition.delegate = self;
-    
-        [self.view.layer addAnimation:transition forKey:nil];
-    
-    
-    //专场动画的几个属性
+    //转场动画的几个属性
     /*
      ♢type -- 动画过渡效果
      
@@ -163,9 +155,26 @@
     //♢startProgress 动画起点（在整体动画的百分比）
     //♢stopProgress 动画终点（在整体动画的百分比）
     
-
-    
 }
+
+//添加按钮点击处理
+- (void)addBtnClick{
+    
+        // 1. 创建核心动画
+        CATransition *transition = [CATransition animation];
+        // 2. 选择动画过渡效果
+        transition.type = @"cube";
+        transition.subtype = kCATransitionFromRight;
+        // 3.设置动画时间
+        transition.duration = 0.5;
+        // 4. 添加核心动画
+    
+        transition.delegate = self;
+    
+        [self.view.layer addAnimation:transition forKey:nil];
+    
+    
+    }
 
 //该方法是实现转场动画结束后再跳转至抽奖设置界面
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
@@ -181,8 +190,7 @@
     //在completion里面可以设置动画完成后做什么事情
     //这里的options选择太少了，动画效果就那么几个，还是上面那种方法好
     [UIView transitionWithView:self.navigationController.view duration:1.0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
-//        NumSettingViewController *numSetViewCtrl = [[NumSettingViewController alloc] initWithNibName:nil bundle:nil];
-//        [self.navigationController pushViewController:numSetViewCtrl animated:NO];
+
     } completion:^(BOOL finished) {
         
         //这两句放在上面的block里面也可以
@@ -260,15 +268,24 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ShowSetViewController *showSetViewCtrl = [[ShowSetViewController alloc] init];
-    [self.navigationController pushViewController:showSetViewCtrl animated:YES];
-    NSInteger row = [indexPath row];
-    showSetViewCtrl.index = row;
     
-    AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
-    myDelegate.strCell = [NSString stringWithFormat:@"%ld", row];
-    
-    NSLog(@"第 %ld 个cell", row);
+    [UIView transitionWithView:self.navigationController.view duration:1.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+        
+        ShowSetViewController *showSetViewCtrl = [[ShowSetViewController alloc] init];
+        [self.navigationController pushViewController:showSetViewCtrl animated:NO];
+        
+        NSInteger row = [indexPath row];
+        showSetViewCtrl.index = row;
+        
+        AppDelegate *myDelegate = [[UIApplication sharedApplication]delegate];
+        myDelegate.strCell = [NSString stringWithFormat:@"%ld", row];
+        NSLog(@"第 %ld 个cell", row);
+
+    } completion:^(BOOL finished) {
+        
+        //动画完成后要做什么。。。。
+    }];
+
 }
 
 @end

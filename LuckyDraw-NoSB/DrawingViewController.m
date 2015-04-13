@@ -114,27 +114,27 @@
     }
     
     /****给view创建动画****/
-    // 1. 创建核心动画--转场动画
-    CATransition *transition = [CATransition animation];
-    // 2. 选择动画过渡效果--水滴效果
-    transition.type = @"rippleEffect";
-    // 3.设置动画时间
-    transition.duration = 1.5;
-    // 4. 添加核心动画
-    [self.mTableView.layer addAnimation:transition forKey:nil];
+//    // 1. 创建核心动画--转场动画
+//    CATransition *transition = [CATransition animation];
+//    // 2. 选择动画过渡效果--水滴效果
+//    transition.type = @"rippleEffect";
+//    // 3.设置动画时间
+//    transition.duration = 1.5;
+//    // 4. 添加核心动画
+//    [self.mTableView.layer addAnimation:transition forKey:nil];
     
     /****给抽奖按钮创建动画****/
     // 1. 创建核心动画--关键帧动画
     CAKeyframeAnimation *drawBtnkeyAnima = [CAKeyframeAnimation animation];
     
     drawBtnkeyAnima.keyPath = @"transform.rotation";
-    drawBtnkeyAnima.values = @[@(-angle2Radian(4)),@(angle2Radian(4)),@(-angle2Radian(4))];
+    drawBtnkeyAnima.values = @[@(-angle2Radian(10)),@(angle2Radian(10)),@(-angle2Radian(10))];
     //动画完成后删除动画
     drawBtnkeyAnima.removedOnCompletion = YES;
     //保存动画的最新状态
-//    drawBtnkeyAnima.fillMode = kCAFillModeForwards;
+    drawBtnkeyAnima.fillMode = kCAFillModeForwards;
     //动画时长
-    drawBtnkeyAnima.duration = 0.3;
+    drawBtnkeyAnima.duration = 0.5;
     //设置动画重复次数 MAXFLOAT无限次
 //    drawBtnkeyAnima.repeatCount = MAXFLOAT;
     
@@ -203,6 +203,41 @@
     }
     
     return cell;
+    
+    
+}
+//添加cell的动画
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    //动画1.大风车
+    CAKeyframeAnimation *cellRotation = [CAKeyframeAnimation animation];
+    
+    cellRotation.keyPath = @"transform.rotation";
+    cellRotation.values = @[@(-angle2Radian(30)),@(angle2Radian(30)),@(-angle2Radian(30))];
+    //动画完成后删除动画
+    cellRotation.removedOnCompletion = YES;
+    //保存动画的最新状态
+    cellRotation.fillMode = kCAFillModeForwards;
+    //动画时长
+    cellRotation.duration = 0.5;
+    //设置动画重复次数 MAXFLOAT无限次
+    cellRotation.repeatCount = 2;
+    [cell.layer addAnimation:cellRotation forKey:nil];
+    
+    //动画2.缩放
+    CAKeyframeAnimation *cellScale = [CAKeyframeAnimation animation];
+    
+    cellScale.keyPath = @"transform.scale";
+    cellScale.values = @[@(0.3),@(1.5),@(0.3),@(1.0)];
+    //动画完成后删除动画
+    cellScale.removedOnCompletion = YES;
+    //保存动画的最新状态
+    cellScale.fillMode = kCAFillModeForwards;
+    //动画时长
+    cellScale.duration = 2.0;
+    //设置动画重复次数 MAXFLOAT无限次
+    cellScale.repeatCount = 1;
+    [cell.layer addAnimation:cellScale forKey:nil];
     
 }
 

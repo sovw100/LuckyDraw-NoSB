@@ -122,8 +122,56 @@
     
     if ((self.levelTextField.text.length == 0) || (self.prizeTextField.text.length == 0) || (self.numTextField.text.length == 0)) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"太挫了!" message:@"数据不完全啊傻逼！" delegate:nil cancelButtonTitle:@"点这里的是傻逼" otherButtonTitles:nil];
-        [alert show];
+        //判断是哪一个编辑框内容为空，抖动提示用户输入数据
+        if (self.levelTextField.text.length == 0) {
+            //弹簧动画
+            //Duration:动画时长
+            //delay:动画延迟
+            //Damping:越接近0，弹簧效果越明显
+            //Velocity:初始速度
+            //options:动画过渡效果
+            [UIView animateWithDuration:0.2 delay:(0.2) usingSpringWithDamping:0.1 initialSpringVelocity:15.0 options:UIViewAnimationOptionTransitionNone animations:^{
+                //动画期间执行
+                CGPoint point = self.levelTextField.center;
+                point.x += 4;
+                [self.levelTextField setCenter:point];
+                
+            } completion:^(BOOL finished) {
+                //动画完成后执行
+                CGPoint point = self.levelTextField.center;
+                point.x -= 4;
+                [self.levelTextField setCenter:point];
+            }];
+        }else if (self.prizeTextField.text.length == 0){
+        
+            [UIView animateWithDuration:0.2 delay:(0.2) usingSpringWithDamping:0.1 initialSpringVelocity:15.0 options:UIViewAnimationOptionTransitionNone animations:^{
+                //动画期间执行
+                CGPoint point = self.prizeTextField.center;
+                point.x += 4;
+                [self.prizeTextField setCenter:point];
+                
+            } completion:^(BOOL finished) {
+                //动画完成后执行
+                CGPoint point = self.prizeTextField.center;
+                point.x -= 4;
+                [self.prizeTextField setCenter:point];
+            }];
+        }else if (self.numTextField.text.length == 0){
+        
+            [UIView animateWithDuration:0.2 delay:(0.2) usingSpringWithDamping:0.1 initialSpringVelocity:15.0 options:UIViewAnimationOptionTransitionNone animations:^{
+                //动画期间执行
+                CGPoint point = self.numTextField.center;
+                point.x += 4;
+                [self.numTextField setCenter:point];
+                
+            } completion:^(BOOL finished) {
+                //动画完成后执行
+                CGPoint point = self.numTextField.center;
+                point.x -= 4;
+                [self.numTextField setCenter:point];
+            }];
+
+        }
         
     }else{
     
@@ -138,11 +186,9 @@
         [processDicts setValue:self.levelTextField.text forKey:@"level"];
         [processDicts setValue:self.prizeTextField.text forKey:@"prize"];
         [myDelegate.processArray addObject:processDicts];
-   
 
     }
     NSLog(@"processArray%@", myDelegate.processArray);
-    
     
     //prize information
     [prizeInfoDicts setValue:self.levelTextField.text forKey:@"level"];
@@ -168,7 +214,7 @@
     }
 
 }
-
+//上面这个transition动画结束后执行以下代码
 -(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
 
     ViewController *viewCtrl = [[ViewController alloc] initWithNibName:nil bundle:nil];

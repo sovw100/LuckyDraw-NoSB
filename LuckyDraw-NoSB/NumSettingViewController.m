@@ -79,9 +79,24 @@
 - (void)startBtnClick{
     
     if (self.TotalPerson.text.length == 0) {
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"- = |||!" message:@"2B,你忘记输入人数了！" delegate:nil cancelButtonTitle:@"你才是2B" otherButtonTitles:nil];
-        [alert show];
+        //弹簧动画
+        //Duration:动画时长
+        //delay:动画延迟
+        //Damping:越接近0，弹簧效果越明显
+        //Velocity:初始速度
+        //options:动画过渡效果
+        [UIView animateWithDuration:0.2 delay:(0.2) usingSpringWithDamping:0.1 initialSpringVelocity:15.0 options:UIViewAnimationOptionTransitionNone animations:^{
+            //动画期间执行
+            CGPoint point = self.TotalPerson.center;
+            point.x += 4;
+            [self.TotalPerson setCenter:point];
+            
+        } completion:^(BOOL finished) {
+            //动画完成后执行
+            CGPoint point = self.TotalPerson.center;
+            point.x -= 4;
+            [self.TotalPerson setCenter:point];
+        }];
         
     }else{
 
