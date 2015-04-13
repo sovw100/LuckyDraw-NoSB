@@ -51,7 +51,6 @@
         _nextBtn.frame = CGRectMake(80, 498, 160, 40);
         [_nextBtn setBackgroundColor:[UIColor lightGrayColor]];
         [_nextBtn setTitle:@"Next" forState:UIControlStateNormal];
-        [_nextBtn setTitle:@"Clicked" forState:UIControlStateHighlighted];
         _nextBtn.titleLabel.font = [UIFont fontWithName:@"Avenir-Light" size:16];
         
         [self.view addSubview:_nextBtn];
@@ -120,19 +119,80 @@
 //添加按钮点击处理
 - (void)addBtnClick{
     
-    //跳转至奖项设置界面
-    SettingViewController *setViewCtrl = [[SettingViewController alloc] initWithNibName:nil bundle:nil];
-    [self.navigationController pushViewController:setViewCtrl animated:YES];
+        // 1. 创建核心动画
+        CATransition *transition = [CATransition animation];
+        // 2. 选择动画过渡效果
+        transition.type = @"cube";
+        transition.subtype = kCATransitionFromRight;
+        // 3.设置动画时间
+        transition.duration = 0.5;
+        // 4. 添加核心动画
     
+        transition.delegate = self;
+    
+        [self.view.layer addAnimation:transition forKey:nil];
+    
+    
+    //专场动画的几个属性
+    /*
+     ♢type -- 动画过渡效果
+     
+     1.fade                      交叉淡化过渡，不支持过渡方向，kCATransitionFade
+     2.push                      新视图把旧视图推出去 kCATransitionPush
+     3.moveIn                    新视图移到旧视图上面 kCATransitionMoveIn
+     4.reveal                    将旧视图移开，显示下面的新视图 kCATransitionReveal
+     5.cube                      立方体翻滚效果
+     6.oglFlip                   上下左右翻转效果
+     7.suckEffect                收缩效果，如一块布被抽走，不支持过渡方向
+     8.rippleEffect              滴水效果，不支持过渡方向
+     9.pageCurl                  向上翻页效果
+     10.pageUnCurl               向下翻页效果
+     11.cameraIrisHollowOpen     相机镜头打开效果，不支持过渡方向
+     12.cameraIrisHollowClose    相机镜头关闭效果，不支持过渡方向
+     */
+    
+    /*
+     ♢subtype -- 过渡方向
+     
+     kCATransitionFromRight
+     kCATransitionFromLeft
+     kCATransitionFromTop
+     kCATransitionFromBottom
+     */
+    
+    //♢startProgress 动画起点（在整体动画的百分比）
+    //♢stopProgress 动画终点（在整体动画的百分比）
+    
+
+    
+}
+
+//该方法是实现转场动画结束后再跳转至抽奖设置界面
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+    
+    SettingViewController *setViewCtrl = [[SettingViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:setViewCtrl animated:NO];
 }
 
 // Next按钮点击处理
 - (void)nextBtnClick{
+
+    //另一种动画实现方式--块动画
+    //在completion里面可以设置动画完成后做什么事情
+    //这里的options选择太少了，动画效果就那么几个，还是上面那种方法好
+    [UIView transitionWithView:self.navigationController.view duration:1.0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
+//        NumSettingViewController *numSetViewCtrl = [[NumSettingViewController alloc] initWithNibName:nil bundle:nil];
+//        [self.navigationController pushViewController:numSetViewCtrl animated:NO];
+    } completion:^(BOOL finished) {
+        
+        //这两句放在上面的block里面也可以
+        NumSettingViewController *numSetViewCtrl = [[NumSettingViewController alloc] initWithNibName:nil bundle:nil];
+        [self.navigationController pushViewController:numSetViewCtrl animated:NO];
+    }];
     
-    //跳转至总抽奖人数设置界面
-    NumSettingViewController *numSetViewCtrl = [[NumSettingViewController alloc] initWithNibName:nil bundle:nil];
-    [self.navigationController pushViewController:numSetViewCtrl animated:YES];
-}
+    
+   }
+
 
 #pragma mark - TabelView cell相关方法
 

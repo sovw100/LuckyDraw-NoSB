@@ -8,6 +8,7 @@
 
 #import "SettingViewController.h"
 #import "AppDelegate.h"
+#import "ViewController.h"
 
 //TextField宏定义
 #define WIDTH 220
@@ -151,8 +152,27 @@
 
     
     NSLog(@"Prize's Information's Array %@", myDelegate.prizeInfoArray);
+        
+        // 1. 创建核心动画
+        CATransition *transition = [CATransition animation];
+        // 2. 选择动画过渡效果
+        transition.type = @"cube";
+        transition.subtype = kCATransitionFromLeft;
+        // 3.设置动画时间
+        transition.duration = 0.5;
+        // 4. 添加核心动画
+        transition.delegate = self;
+        
+        [self.view.layer addAnimation:transition forKey:nil];
     
     }
+
+}
+
+-(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+
+    ViewController *viewCtrl = [[ViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:viewCtrl animated:NO];
 
 }
 

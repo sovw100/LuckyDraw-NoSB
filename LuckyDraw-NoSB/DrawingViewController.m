@@ -9,6 +9,9 @@
 #import "DrawingViewController.h"
 #import "AppDelegate.h"
 
+//角度转弧度,传入角度，计算出弧度
+#define angle2Radian(angle) ((angle) / 180.0 * M_PI)
+
 @interface DrawingViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 /**显示抽奖结果的tableView*/
@@ -109,6 +112,34 @@
         
         [self.mTableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
+    
+    /****给view创建动画****/
+    // 1. 创建核心动画--转场动画
+    CATransition *transition = [CATransition animation];
+    // 2. 选择动画过渡效果--水滴效果
+    transition.type = @"rippleEffect";
+    // 3.设置动画时间
+    transition.duration = 1.5;
+    // 4. 添加核心动画
+    [self.mTableView.layer addAnimation:transition forKey:nil];
+    
+    /****给抽奖按钮创建动画****/
+    // 1. 创建核心动画--关键帧动画
+    CAKeyframeAnimation *drawBtnkeyAnima = [CAKeyframeAnimation animation];
+    
+    drawBtnkeyAnima.keyPath = @"transform.rotation";
+    drawBtnkeyAnima.values = @[@(-angle2Radian(4)),@(angle2Radian(4)),@(-angle2Radian(4))];
+    //动画完成后删除动画
+    drawBtnkeyAnima.removedOnCompletion = YES;
+    //保存动画的最新状态
+//    drawBtnkeyAnima.fillMode = kCAFillModeForwards;
+    //动画时长
+    drawBtnkeyAnima.duration = 0.3;
+    //设置动画重复次数 MAXFLOAT无限次
+//    drawBtnkeyAnima.repeatCount = MAXFLOAT;
+    
+    // 4. 添加核心动画
+    [self.drawBtn.layer addAnimation:drawBtnkeyAnima forKey:nil];
 }
 
 #pragma mark - TabelView cell相关方法

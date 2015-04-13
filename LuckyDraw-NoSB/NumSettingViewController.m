@@ -85,9 +85,6 @@
         
     }else{
 
-
-    DrawingViewController *drawViewCtrl = [[DrawingViewController alloc] initWithNibName:nil bundle:nil];
-    [self.navigationController pushViewController:drawViewCtrl animated:YES];
     
     NSLog(@"Here is %@ player", self.TotalPerson.text);
     
@@ -123,7 +120,28 @@
     NSLog(@"抽奖池:%@", myDelegate.processArray);
     
     myDelegate.exeProcessArray = [myDelegate.processArray mutableCopy];
+        
+        
+        // 1. 创建核心动画
+        CATransition *transition = [CATransition animation];
+        // 2. 选择动画过渡效果
+        transition.type = @"cube";
+        transition.subtype = kCATransitionFromTop;
+        // 3.设置动画时间
+        transition.duration = 0.5;
+        // 4. 添加核心动画
+        
+        transition.delegate = self;
+        
+        [self.view.layer addAnimation:transition forKey:nil];
     }
+}
+
+-(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+    
+    DrawingViewController *drawViewCtrl = [[DrawingViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:drawViewCtrl animated:NO];
+    
 }
 
 //点击TextField以外区域，键盘消失
