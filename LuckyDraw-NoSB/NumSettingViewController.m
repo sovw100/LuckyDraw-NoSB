@@ -121,8 +121,8 @@
     if ( numPlayer > 0 ) {
         for (int i = 0; i < numNone ; i++ ) {
             
-            [infoDicts setValue:@"没中奖" forKey:@"level"];
-            [infoDicts setValue:@"没奖品" forKey:@"prize"];
+            [infoDicts setValue:@"none" forKey:@"level"];
+            [infoDicts setValue:@"none" forKey:@"prize"];
             [myDelegate.processArray addObject:infoDicts];
 
         }

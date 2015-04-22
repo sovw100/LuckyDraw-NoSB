@@ -59,15 +59,6 @@
     return _drawBtn;
 }
 
-//-(NSMutableArray *)cellDataArray{
-//
-//    if (_cellDataArray) {
-//        
-//        _cellDataArray = [[NSMutableArray alloc] init];
-//    }
-//    
-//    return _cellDataArray;
-//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -96,7 +87,7 @@
     NSLog(@"中奖号码%@", myDelegate.winnerNumArray );
     
 }
-
+//new--test
 //抽奖按钮点击处理方法
 - (void)drawBtnClick{
 
@@ -112,17 +103,9 @@
         
         [self.mTableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
+
     
-    /****给view创建动画****/
-//    // 1. 创建核心动画--转场动画
-//    CATransition *transition = [CATransition animation];
-//    // 2. 选择动画过渡效果--水滴效果
-//    transition.type = @"rippleEffect";
-//    // 3.设置动画时间
-//    transition.duration = 1.5;
-//    // 4. 添加核心动画
-//    [self.mTableView.layer addAnimation:transition forKey:nil];
-    
+
     /****给抽奖按钮创建动画****/
     // 1. 创建核心动画--关键帧动画
     CAKeyframeAnimation *drawBtnkeyAnima = [CAKeyframeAnimation animation];
